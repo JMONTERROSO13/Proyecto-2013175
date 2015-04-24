@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Proyecto2.Models.Persona>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bienvenido al Area Cliente</h2>
+
+@foreach (var item in Model )
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Dpi })
+        </td>
+        <td>
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Dpi })
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Dpi })
+        </td>
+    </tr>
+}

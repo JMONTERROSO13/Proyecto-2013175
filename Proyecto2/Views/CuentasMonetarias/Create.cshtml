@@ -1,0 +1,60 @@
+﻿@model Proyecto2.Models.CuentaMonetaria
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CuentaMonetaria</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombreCuenta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <script>
+                    function Generador() {
+                        var min = 0000000000, max = 9999999999;
+                        var rand = min + Math.random() * (max + 1 - min);
+                        rand = Math.floor(rand)
+                        var retornar = document.getElementById("NumCuenta").value = rand;
+                    }
+                </script>
+                <input type="text" id="NumCuenta" name="nombreCuenta" onclick="Generador()" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.saldo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.saldo)
+                @Html.ValidationMessageFor(model => model.saldo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonaDpi, "PersonaDpi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PersonaDpi", String.Empty)
+                @Html.ValidationMessageFor(model => model.PersonaDpi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

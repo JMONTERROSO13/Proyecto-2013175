@@ -1,0 +1,43 @@
+﻿@model Proyecto2.Models.SelectUserRolesViewModel
+
+@{
+    ViewBag.Title = "Roles de Usuario";
+}
+
+<h2>Roles for user @Html.DisplayFor(model => model.UserName)</h2>
+<hr />
+
+@using (Html.BeginForm("UserRoles", "Account", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.UserName)
+            </div>
+        </div>
+
+        <h4>Seleccione un Rol</h4>
+        <table>
+            <tr>
+                <th>
+                    Seleccion
+                </th>
+                <th>
+                    Rol
+                </th>
+            </tr>
+            @Html.EditorFor(model => model.Roles)
+        </table>
+        <br />
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

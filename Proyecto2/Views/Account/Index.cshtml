@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Proyecto2.Models.IndexView>
+
+@{
+    ViewBag.Title = "Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<li>@Html.ActionLink("Personas", "Index", "Personas")</li>
+<hr>
+<p>
+    @Html.ActionLink("Crear Nuevo", "Register") 
+</p>
+<hr>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonaDpi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonaDpi)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.UserName }) |
+            @Html.ActionLink("Roles", "UserRoles", new { id = item.UserName }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.UserName })
+        </td>
+    </tr>
+}
+
+</table>
