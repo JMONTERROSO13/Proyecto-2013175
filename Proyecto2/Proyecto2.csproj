@@ -170,6 +170,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504251404176_Initial-2013175.cs" />
+    <Compile Include="Migrations\201504251404176_Initial-2013175.Designer.cs">
+      <DependentUpon>201504251404176_Initial-2013175.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AbonoAhorro.cs" />
     <Compile Include="Models\AbonoDebito.cs" />
@@ -331,6 +335,11 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504251404176_Initial-2013175.resx">
+      <DependentUpon>201504251404176_Initial-2013175.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

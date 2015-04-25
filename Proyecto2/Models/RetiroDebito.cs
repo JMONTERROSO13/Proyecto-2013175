@@ -11,11 +11,12 @@ namespace Proyecto2.Models
         public int Id { get; set; }
 
         public int TarjetaDebitoId { get; set; }
+        public int TarjetaDebitoCredito { get; set; }
         public virtual TarjetaDebito TarjetaDebito { get; set; }
 
         [StringLength(10, MinimumLength = 4)]
         public string Descripcion { get; set; }
-
-        public decimal Monto { get; set; }
+         
+        public int Monto { get; set; }
     }
 }

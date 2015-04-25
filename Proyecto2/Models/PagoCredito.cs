@@ -10,12 +10,13 @@ namespace Proyecto2.Models
     {
         public int Id { get; set; }
 
+        public int TarjetaCreditoCredito { get; set; }
         public int TarjetaCreditoId { get; set; }
         public virtual TarjetaCredito TarjetaCredito { get; set; }
 
         [StringLength(10, MinimumLength = 4)]
         public string Descripcion { get; set; }
          
-        public decimal Monto { get; set; }
+        public int Monto { get; set; }
     }
 }

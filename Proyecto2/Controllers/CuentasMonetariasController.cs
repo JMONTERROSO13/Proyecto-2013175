@@ -48,7 +48,7 @@ namespace Proyecto2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,nombreCuenta,saldo,PersonaDpi")] CuentaMonetaria cuentamonetaria)
+        public ActionResult Create([Bind(Include="Id,NombreCuenta,Saldo,PersonaDpi")] CuentaMonetaria cuentamonetaria)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace Proyecto2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,nombreCuenta,saldo,PersonaDpi")] CuentaMonetaria cuentamonetaria)
+        public ActionResult Edit([Bind(Include="Id,NombreCuenta,Saldo,PersonaDpi")] CuentaMonetaria cuentamonetaria)
         {
             if (ModelState.IsValid)
             {

@@ -13,9 +13,9 @@ namespace Proyecto2.Models
 
         [StringLength(10)]
         [RegularExpression(@"^[0-9]+$")]
-        public string nombreCuenta { get; set; }
-
-        public decimal saldo { get; set; }
+        public string NombreCuenta { get; set; }
+         
+        public int Saldo { get; set; }
 
         public string PersonaDpi { get; set; }
         public Persona Persona { get; set; }

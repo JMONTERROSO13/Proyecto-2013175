@@ -10,13 +10,14 @@ namespace Proyecto2.Models
     {
         public int Id { get; set; }
 
+        public int CuentaMonetariaSaldo { get; set; }
         public int CuentaMonetariaId { get; set; }
         public virtual CuentaMonetaria CuentaMonetaria { get; set; }
-
+         
         [StringLength(10, MinimumLength = 4)]
         public string Descripcion { get; set; }
 
-        public decimal Monto { get; set; }
+        public int Monto { get; set; }
 
     }
 }

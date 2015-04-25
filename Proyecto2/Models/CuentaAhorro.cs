@@ -13,12 +13,12 @@ namespace Proyecto2.Models
 
         [StringLength(7)]
         [RegularExpression(@"^[0-9]+$")]
-        public string nombreCuenta { get; set; }
+        public string NombreCuenta { get; set; }
         
-        public decimal saldo { get; set; }
-         
-            public string PersonaDpi { get; set; }
-            public Persona Persona { get; set; }
+        public int Saldo { get; set; }
+          
+        public string PersonaDpi { get; set; }
+        public Persona Persona { get; set; }
 
         public virtual ICollection<AbonoAhorro> Abonos { get; set; }
         public virtual ICollection<RetiroAhorro> Retiros { get; set; }
