@@ -51,6 +51,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -60,6 +64,14 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -160,13 +172,26 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AbonoAhorroController.cs" />
+    <Compile Include="Controllers\AbonoDebitoController.cs" />
+    <Compile Include="Controllers\AbonosAhorrosController.cs" />
+    <Compile Include="Controllers\AbonosCretidosController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\aCuentasController.cs" />
+    <Compile Include="Controllers\CargoCreditoController.cs" />
+    <Compile Include="Controllers\CuentaMonetariasController.cs" />
     <Compile Include="Controllers\CuentasAhorroController.cs" />
+    <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
     <Compile Include="Controllers\CuentasMonetariasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PagoCreditoController.cs" />
+    <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\RetiroAhorroController.cs" />
+    <Compile Include="Controllers\RetiroDebitoController.cs" />
     <Compile Include="Controllers\TarjetasCreditoController.cs" />
     <Compile Include="Controllers\TarjetasDebitoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -348,6 +373,36 @@
     <Content Include="Views\TarjetasDebito\Edit.cshtml" />
     <Content Include="Views\TarjetasDebito\Index.cshtml" />
     <Content Include="Views\TarjetasDebito\TajetasUser.cshtml" />
+    <Content Include="Views\AbonoAhorro\Create.cshtml" />
+    <Content Include="Views\AbonoAhorro\Delete.cshtml" />
+    <Content Include="Views\AbonoAhorro\Details.cshtml" />
+    <Content Include="Views\AbonoAhorro\Edit.cshtml" />
+    <Content Include="Views\AbonoAhorro\Index.cshtml" />
+    <Content Include="Views\AbonoDebito\Create.cshtml" />
+    <Content Include="Views\AbonoDebito\Delete.cshtml" />
+    <Content Include="Views\AbonoDebito\Details.cshtml" />
+    <Content Include="Views\AbonoDebito\Edit.cshtml" />
+    <Content Include="Views\AbonoDebito\Index.cshtml" />
+    <Content Include="Views\CargoCredito\Create.cshtml" />
+    <Content Include="Views\CargoCredito\Delete.cshtml" />
+    <Content Include="Views\CargoCredito\Details.cshtml" />
+    <Content Include="Views\CargoCredito\Edit.cshtml" />
+    <Content Include="Views\CargoCredito\Index.cshtml" />
+    <Content Include="Views\PagoCredito\Create.cshtml" />
+    <Content Include="Views\PagoCredito\Delete.cshtml" />
+    <Content Include="Views\PagoCredito\Details.cshtml" />
+    <Content Include="Views\PagoCredito\Edit.cshtml" />
+    <Content Include="Views\PagoCredito\Index.cshtml" />
+    <Content Include="Views\RetiroAhorro\Create.cshtml" />
+    <Content Include="Views\RetiroAhorro\Delete.cshtml" />
+    <Content Include="Views\RetiroAhorro\Details.cshtml" />
+    <Content Include="Views\RetiroAhorro\Edit.cshtml" />
+    <Content Include="Views\RetiroAhorro\Index.cshtml" />
+    <Content Include="Views\RetiroDebito\Create.cshtml" />
+    <Content Include="Views\RetiroDebito\Delete.cshtml" />
+    <Content Include="Views\RetiroDebito\Details.cshtml" />
+    <Content Include="Views\RetiroDebito\Edit.cshtml" />
+    <Content Include="Views\RetiroDebito\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

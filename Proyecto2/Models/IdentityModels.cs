@@ -40,6 +40,18 @@ namespace Proyecto2.Models
         public System.Data.Entity.DbSet<Proyecto2.Models.TarjetaCredito> TarjetaCreditoes { get; set; }
 
         public System.Data.Entity.DbSet<Proyecto2.Models.TarjetaDebito> TarjetaDebitoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.AbonoDebito> AbonoDebitoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.CargoCredito> CargoCreditoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.PagoCredito> PagoCreditoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.RetiroAhorro> RetiroAhorroes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.RetiroDebito> RetiroDebitoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.AbonoAhorro> AbonoAhorroes { get; set; }
     }
 
 

@@ -376,3 +376,9 @@ C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto
 C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\obj\Debug\Proyecto2.pdb
 C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\obj\Debug\Proyecto2.Migrations.Initial2013175.resources
 C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\obj\Debug\Proyecto2.csproj.GenerateResource.Cache
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Net.Http.Formatting.dll
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Web.Http.dll
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Web.Http.WebHost.dll
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Net.Http.Formatting.xml
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Web.Http.xml
+C:\Users\JMONTERROSO\Desktop\pro 2 kinal banco - copia\Proyecto-2013175\Proyecto2\bin\System.Web.Http.WebHost.xml

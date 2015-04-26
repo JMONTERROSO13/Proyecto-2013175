@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Chat";
+}
+
+@section scripts
+{
+
+    <script type="text/javascript" src="~/Scripts/jquery.signalR-2.0.0.js"></script>
+    <script type="text/javascript" src="~/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //obtener la referencia del hub autogenerado
+            var chatHub = $.connection.chatHub;
+            chatHub.client.sendMessageToPage = function (name, message) {
+                $("#discussion").append("<li><strong>" + name + "</strong>" + message + "</li>")
+            };
+            $("#displayName").val(prompt("Ingrese su nombre: ", "SignalR Chat"));
+            $("#message").focus();
+
+            $.connection.hub.start().done(function () {
+
+                alert("Conectado con exito");
+                $("#sendMessage").on("click", function () {
+                    var name = $("#displayName").val();
+                    var message = $("#message").val();
+                    chatHub.server.send(name, message);
+                    $("#message").val("").focus();
+                });
+            })
+        });
+
+    </script>
+}
+<div class="jumbotron">
+    <h1>SignalR Chat</h1>
+  
+</div>
+
+<div class="row">
+    <input type="text" id="message" />
+    <input type="button" id="sendMessage" value="Send" />
+    <input type="hidden" id="displayName" />
+    <ul id="discussion">
+
+    </ul>
+ 
+</div>
