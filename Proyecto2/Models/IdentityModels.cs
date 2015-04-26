@@ -34,6 +34,12 @@ namespace Proyecto2.Models
         public System.Data.Entity.DbSet<Proyecto2.Models.CuentaAhorro> CuentaAhorroes { get; set; }
 
         public System.Data.Entity.DbSet<Proyecto2.Models.CuentaMonetaria> CuentaMonetarias { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.Prestamo> Prestamoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.TarjetaCredito> TarjetaCreditoes { get; set; }
+
+        public System.Data.Entity.DbSet<Proyecto2.Models.TarjetaDebito> TarjetaDebitoes { get; set; }
     }
 
 

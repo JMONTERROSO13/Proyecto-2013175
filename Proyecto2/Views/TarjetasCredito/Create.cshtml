@@ -1,0 +1,99 @@
+﻿@model Proyecto2.Models.TarjetaCredito
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TarjetaCredito</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumeroTarjeta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <script>
+                    function Generador() {
+                        var min = 0000000000, max = 9999999999;
+                        var rand = min + Math.random() * (max + 1 - min);
+                        rand = Math.floor(rand)
+                        var retornar = document.getElementById("NumCuenta").value = rand;
+                    }
+                </script>
+                <input type="text" id="NumCuenta" name="NumeroTarjeta" disabled onclick="Generador()" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Estado)
+                @Html.ValidationMessageFor(model => model.Estado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Credito, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Credito)
+                @Html.ValidationMessageFor(model => model.Credito)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CuentaAhorroSaldo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CuentaAhorroSaldo)
+                @Html.ValidationMessageFor(model => model.CuentaAhorroSaldo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CuentaMonetariaSaldo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CuentaMonetariaSaldo)
+                @Html.ValidationMessageFor(model => model.CuentaMonetariaSaldo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CuentaMonetariaId, "CuentaMonetariaId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CuentaMonetariaId", String.Empty)
+                @Html.ValidationMessageFor(model => model.CuentaMonetariaId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pin, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <script>
+                    function Generador() {
+                        var min = 0000, max = 9999;
+                        var rand = min + Math.random() * (max + 1 - min);
+                        rand = Math.floor(rand)
+                        var retornar = document.getElementById("NumCuenta").value = rand;
+                    }
+                </script>
+                <input type="text" id="NumCuenta" name="Pin"  disabled onclick="Generador()" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

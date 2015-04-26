@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nombreCuenta, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NombreCuenta, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <script>
                     function Generador() {
@@ -28,15 +28,15 @@
                         var retornar = document.getElementById("NumCuenta").value = rand;
                     }
                 </script>
-                <input type="text" id="NumCuenta" name="nombreCuenta" onclick="Generador()" />
+                <input type="text" id="NumCuenta" name="NombreCuenta" onclick="Generador()" />
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.saldo, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Saldo, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.saldo)
-                @Html.ValidationMessageFor(model => model.saldo)
+                @Html.EditorFor(model => model.Saldo)
+                @Html.ValidationMessageFor(model => model.Saldo)
             </div>
         </div>
 

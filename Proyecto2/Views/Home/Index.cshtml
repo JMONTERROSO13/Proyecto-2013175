@@ -3,18 +3,44 @@
 }
 
 <div class="jumbotron">
-    <h1>Banco</h1>
+    <h1 class="panel-heading">Banco GUATE FINANZAS</h1>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Estas Listo</h2>
+        <h2>Estas Listo!!!! Bienvenido a Banco GuateFinanzas</h2>
     </div>
-    <div class="col-md-4">
-        <h2>Bienvenido a Banco GuateFinanzas</h2>
-    </div>
+    <hr class="help-block">
     <div class="col-md-4">
         <p>Banco GuateFinanzas su banco!!!!</p>
     </div>
 
+    <table class="table-hover">
+        <tr>
+            <th>
+                Administrador  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 
+            </th>
+            <th>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuario           
+
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.ActionLink("Cuentas de Ahorro", "Index", "CuentasAhorro")
+            </th>
+            <th>
+                @Html.ActionLink("Mis Cuentas de Ahorro", "AhorroUser", "CuentasAhorro")
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.ActionLink("Cuentas Monetarias", "Index", "CuentasAhorro")
+            </th>
+            <th>
+                @Html.ActionLink("Mis Cuentas Monetarias", "MonetariasUser", "CuentasMonetarias")
+            </th>
+        </tr>
+
+    </table>
 </div>

@@ -7,130 +7,124 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto2.Models;
-using Microsoft.AspNet.Identity;
 
 namespace Proyecto2.Controllers
 {
-    public class CuentasAhorroController : Controller
+    public class TarjetasDebitoController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [Authorize(Roles = "Admin")]
-        // GET: /CuentasAhorro/
+        // GET: /TarjetasDebito/
         public ActionResult Index()
         {
-            var cuentaahorroes = db.CuentaAhorroes.Include(c => c.Persona);
-            return View(cuentaahorroes.ToList());
+            var tarjetadebitoes = db.TarjetaDebitoes.Include(t => t.CuentaMonetaria);
+            return View(tarjetadebitoes.ToList());
         }
 
         [Authorize(Roles = "Admin,User")]
-        public ActionResult AhorroUser()
+        public ActionResult TajetasUser(int id)  
         {
-            var id = User.Identity.GetUserName();
-            var cuentaahorroes = db.CuentaAhorroes.Include(c => c.Persona).Where(s => s.Persona.UserName == id);
-            ViewBag.persona = id;
-            return View(cuentaahorroes);
-        }
+            
+            var tarjetas = db.TarjetaDebitoes.Include(c => c.CuentaMonetaria).Where(s => s.CuentaMonetariaId == id);
+            return View(tarjetas);  
+         }
 
-        // GET: /CuentasAhorro/Details/5
-        [Authorize(Roles = "Admin,User")]
+
+        // GET: /TarjetasDebito/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CuentaAhorro cuentaahorro = db.CuentaAhorroes.Find(id);
-            if (cuentaahorro == null)
+            TarjetaDebito tarjetadebito = db.TarjetaDebitoes.Find(id);
+            if (tarjetadebito == null)
             {
                 return HttpNotFound();
             }
-            return View(cuentaahorro);
+            return View(tarjetadebito);
         }
 
-        // GET: /CuentasAhorro/Create
-        [Authorize(Roles = "Admin,User")]
+        // GET: /TarjetasDebito/Create
         public ActionResult Create()
         {
-            ViewBag.PersonaDpi = new SelectList(db.Personas, "Dpi", "Nombre");
+            ViewBag.CuentaMonetariaId = new SelectList(db.CuentaMonetarias, "Id", "NombreCuenta");
             return View();
         }
 
-        // POST: /CuentasAhorro/Create
+        // POST: /TarjetasDebito/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,NombreCuenta,Saldo,PersonaDpi")] CuentaAhorro cuentaahorro)
+        public ActionResult Create([Bind(Include="Id,NumeroTarjeta,Estado,Credito,CuentaMonetariaSaldo,CuentaMonetariaId,Pin")] TarjetaDebito tarjetadebito)
         {
             if (ModelState.IsValid)
             {
-                db.CuentaAhorroes.Add(cuentaahorro);
+                db.TarjetaDebitoes.Add(tarjetadebito);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaDpi = new SelectList(db.Personas, "Dpi", "Nombre", cuentaahorro.PersonaDpi);
-            return View(cuentaahorro);
+            ViewBag.CuentaMonetariaId = new SelectList(db.CuentaMonetarias, "Id", "NombreCuenta", tarjetadebito.CuentaMonetariaId);
+            return View(tarjetadebito);
         }
 
-        // GET: /CuentasAhorro/Edit/5
-        [Authorize(Roles = "Admin,User")]
+        // GET: /TarjetasDebito/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CuentaAhorro cuentaahorro = db.CuentaAhorroes.Find(id);
-            if (cuentaahorro == null)
+            TarjetaDebito tarjetadebito = db.TarjetaDebitoes.Find(id);
+            if (tarjetadebito == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaDpi = new SelectList(db.Personas, "Dpi", "Nombre", cuentaahorro.PersonaDpi);
-            return View(cuentaahorro);
+            ViewBag.CuentaMonetariaId = new SelectList(db.CuentaMonetarias, "Id", "NombreCuenta", tarjetadebito.CuentaMonetariaId);
+            return View(tarjetadebito);
         }
 
-        // POST: /CuentasAhorro/Edit/5
+        // POST: /TarjetasDebito/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,NombreCuenta,Saldo,PersonaDpi")] CuentaAhorro cuentaahorro)
+        public ActionResult Edit([Bind(Include="Id,NumeroTarjeta,Estado,Credito,CuentaMonetariaSaldo,CuentaMonetariaId,Pin")] TarjetaDebito tarjetadebito)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cuentaahorro).State = EntityState.Modified;
+                db.Entry(tarjetadebito).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaDpi = new SelectList(db.Personas, "Dpi", "Nombre", cuentaahorro.PersonaDpi);
-            return View(cuentaahorro);
+            ViewBag.CuentaMonetariaId = new SelectList(db.CuentaMonetarias, "Id", "NombreCuenta", tarjetadebito.CuentaMonetariaId);
+            return View(tarjetadebito);
         }
 
-        // GET: /CuentasAhorro/Delete/5
-        [Authorize(Roles = "Admin,User")]
+        // GET: /TarjetasDebito/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CuentaAhorro cuentaahorro = db.CuentaAhorroes.Find(id);
-            if (cuentaahorro == null)
+            TarjetaDebito tarjetadebito = db.TarjetaDebitoes.Find(id);
+            if (tarjetadebito == null)
             {
                 return HttpNotFound();
             }
-            return View(cuentaahorro);
+            return View(tarjetadebito);
         }
 
-        // POST: /CuentasAhorro/Delete/5
+        // POST: /TarjetasDebito/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CuentaAhorro cuentaahorro = db.CuentaAhorroes.Find(id);
-            db.CuentaAhorroes.Remove(cuentaahorro);
+            TarjetaDebito tarjetadebito = db.TarjetaDebitoes.Find(id);
+            db.TarjetaDebitoes.Remove(tarjetadebito);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

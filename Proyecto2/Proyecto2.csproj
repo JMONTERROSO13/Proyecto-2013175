@@ -166,6 +166,9 @@
     <Compile Include="Controllers\CuentasMonetariasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
+    <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\TarjetasCreditoController.cs" />
+    <Compile Include="Controllers\TarjetasDebitoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -328,6 +331,23 @@
     <Content Include="Views\Personas\Details.cshtml" />
     <Content Include="Views\Personas\Edit.cshtml" />
     <Content Include="Views\Personas\Index.cshtml" />
+    <Content Include="Views\CuentasMonetarias\MonetariasUser.cshtml" />
+    <Content Include="Views\Prestamos\Create.cshtml" />
+    <Content Include="Views\Prestamos\Delete.cshtml" />
+    <Content Include="Views\Prestamos\Details.cshtml" />
+    <Content Include="Views\Prestamos\Edit.cshtml" />
+    <Content Include="Views\Prestamos\Index.cshtml" />
+    <Content Include="Views\TarjetasCredito\Create.cshtml" />
+    <Content Include="Views\TarjetasCredito\Delete.cshtml" />
+    <Content Include="Views\TarjetasCredito\Details.cshtml" />
+    <Content Include="Views\TarjetasCredito\Edit.cshtml" />
+    <Content Include="Views\TarjetasCredito\Index.cshtml" />
+    <Content Include="Views\TarjetasDebito\Create.cshtml" />
+    <Content Include="Views\TarjetasDebito\Delete.cshtml" />
+    <Content Include="Views\TarjetasDebito\Details.cshtml" />
+    <Content Include="Views\TarjetasDebito\Edit.cshtml" />
+    <Content Include="Views\TarjetasDebito\Index.cshtml" />
+    <Content Include="Views\TarjetasDebito\TajetasUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

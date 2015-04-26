@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Proyecto2.Controllers
 {
@@ -15,13 +16,26 @@ namespace Proyecto2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /CuentasMonetarias/
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var cuentamonetarias = db.CuentaMonetarias.Include(c => c.Persona);
             return View(cuentamonetarias.ToList());
         }
 
+        [Authorize(Roles = "Admin,User")]
+        public ActionResult MonetariasUser()
+        {
+            var id = User.Identity.GetUserName();
+            var cuentaahorroes = db.CuentaMonetarias.Include(c => c.Persona).Where(s => s.Persona.UserName == id);
+            ViewBag.persona = id;
+            return View(cuentaahorroes);
+        }
+
         // GET: /CuentasMonetarias/Details/5
+
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +51,8 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /CuentasMonetarias/Create
+
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Create()
         {
             ViewBag.PersonaDpi = new SelectList(db.Personas, "Dpi", "Nombre");
@@ -62,6 +78,8 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /CuentasMonetarias/Edit/5
+
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +113,8 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /CuentasMonetarias/Delete/5
+
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

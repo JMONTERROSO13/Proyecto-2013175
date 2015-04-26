@@ -15,12 +15,16 @@ namespace Proyecto2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /Personas/
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Personas.ToList());
         }
 
         // GET: /Personas/Details/5
+
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -36,6 +40,9 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /Personas/Create
+
+
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +66,7 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /Personas/Edit/5
+        [Authorize(Roles = "Admin,User")]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -90,6 +98,7 @@ namespace Proyecto2.Controllers
         }
 
         // GET: /Personas/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id)
         {
             if (id == null)

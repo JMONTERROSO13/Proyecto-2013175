@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Proyecto2.Models.CuentaAhorro>
+﻿@model IEnumerable<Proyecto2.Models.CuentaMonetaria>
 
 @{
-    ViewBag.Title = "AhorroUser";
+    ViewBag.Title = "Cuentas Monetarias";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<h1>ViewBag.Persona</h1>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar Cuenta", "Create")
 </p>
 <table class="table">
     <tr>
@@ -34,7 +34,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Saldo)
             </td>
+            <td>
+                @Html.ActionLink("Crear Prestamos", "Create", "Prestamos", new { names = item.NombreCuenta,id = item.Id, Saldo = item.Saldo}, new { title = "Prestamos" })
+            </td>
+            <td>
+                @Html.ActionLink("Tarjetas de Debito", "TarjetasUser", "TarjetasDebito", new { id = item.Id}, new { title = "Tarjetas" })
+            </td>
         </tr>
     }
 
 </table>
+

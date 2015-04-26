@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Proyecto2.Models.CuentaMonetaria>
+﻿@model IEnumerable<Proyecto2.Models.Prestamo>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Persona.Nombre)
+            @Html.DisplayNameFor(model => model.CuentaMonetaria.NombreCuenta)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreCuenta)
+            @Html.DisplayNameFor(model => model.CuentaMonetariaSaldo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Saldo)
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monto)
         </th>
         <th></th>
     </tr>
@@ -27,13 +30,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Persona.Nombre)
+            @Html.DisplayFor(modelItem => item.CuentaMonetaria.NombreCuenta)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NombreCuenta)
+            @Html.DisplayFor(modelItem => item.CuentaMonetariaSaldo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Saldo)
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monto)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -18,5 +18,6 @@ namespace Proyecto2.Models
         public string Descripcion { get; set; }
 
         public int Monto { get; set; }
+
     }
 }
